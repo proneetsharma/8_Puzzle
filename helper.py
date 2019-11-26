@@ -36,3 +36,21 @@ class state():
             if self.in_boundary((i, j)):
                 possible_moves.append(each)
         return(possible_moves)
+
+    # Get the position of any element
+    def get_position(self, x):
+        for i in range(ROW_SIZE):
+            for j in range(ROW_SIZE):
+                if self.data[i][j] == x:
+                    return i, j
+
+    # Get the next state after swaping the element
+    def next_state(self):
+        x, y = self.get_position(0)
+        child = list()
+        for each in self.get_possible_moves((x, y)):
+            copy_state = copy.deepcopy(self.data)
+            m, n = each
+            copy_state[x][y], copy_state[m][n] = copy_state[m][n], copy_state[x][y]
+            child.append(state(self.f, self.g+1, self, copy_state))
+        return child
