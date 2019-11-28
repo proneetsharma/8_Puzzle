@@ -91,3 +91,25 @@ class Puzzle():
                     x, y = divmod(A, ROW_SIZE)
                     distance += abs(x - i) + abs(y - j)
         return distance
+
+    # Calculate no of misplaced tiles as heuristic
+    def misplaced_tiles(self, input_data):
+        counter = 0
+        for i in range(ROW_SIZE):
+            for j in range(ROW_SIZE):
+                if input_data[i][j] != self.goal_state.data[i][j] and input_data[i][j] != 0:
+                    counter += 1
+        return counter
+
+    # Calculate the cost 
+    def f_val(self, g, h):
+        f_n = g + h
+        return(f_n)
+
+    # Convert 2D array to a list
+    def array2D_to_tuple(self, data):
+        new_list = []
+        for i in data:
+            for j in i:
+                new_list.append(j)
+        return tuple(new_list)
