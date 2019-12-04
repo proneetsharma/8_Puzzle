@@ -113,3 +113,19 @@ class Puzzle():
             for j in i:
                 new_list.append(j)
         return tuple(new_list)
+
+    def write_to_file(self, file_path):
+        f = open(file_path, "w+")
+        f.write("Execution Time: {}".format(str(self.execution)) + " sec" + "\n")
+        f.write("Nodes Explored: {}".format(str(self.count)) + "\n")
+        f.write("Path Cost: {}".format(str(self.path_cost)) + "\n" + "\n")
+
+        for node in self.path:
+            for x in node.data:
+                for y in x:
+                    f.write(str(y) + " ")
+                print(x)
+                f.write("\n")          
+            print("\n") 
+            f.write("\n")    
+        f.close()
