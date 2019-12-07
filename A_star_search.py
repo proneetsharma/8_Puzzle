@@ -91,11 +91,11 @@ if __name__ == '__main__':
 
         if opt ==1:
             print("\nRunning A star search with Manhattan Dist heuristic\n")
-            file_name = "A_star_manhattan"
+            file_name = "./Results/A_star/manhattan"
 
         else:
             print("\nRunning A star search with Misplaced Tiles heuristic\n")
-            file_name = "A_star_misplaced_tiles"
+            file_name = "./Results/A_star/misplaced_tiles"
 
 
         puzzle_8 = [0, 1, 2, 3, 4, 5, 8, 6, 7] # Initial Configuration for testing
